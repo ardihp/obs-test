@@ -17,6 +17,9 @@ A Test for OBS
 - [axios](https://axios-http.com/docs/intro) for data fetching.
 - [mui](https://mui.com) for Styling.
 - [react-redux](https://react-redux.js.org) for state management.
+- [husky](https://typicode.github.io/husky/) for pre-commit tool.
+- [lint-staged](https://github.com/lint-staged/lint-staged) for the pre-commit script of husky.
+- [prettier](https://prettier.io) for formating code to look more organize.
 - [testing-library](https://testing-library.com) for testing.
 - write in [typescript](https://typescriptlang.org/).
 - [vercel](https://vercel.com) for deployment.
@@ -45,6 +48,12 @@ Start the server
 
 ```bash
   npm run start
+```
+
+To test the code
+
+```bash
+  npm run test
 ```
 
 ## Feedback
