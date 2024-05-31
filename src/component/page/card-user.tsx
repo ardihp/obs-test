@@ -106,7 +106,12 @@ function CardUser({ user }: CardUserProps) {
                 variant="body1"
                 fontWeight={700}
                 fontSize={20}
-                style={{ lineHeight: "1.2" }}
+                sx={{
+                  lineHeight: "1.2",
+                  width: "calc(100% - 20px)",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
               >
                 {user?.name}
               </Typography>
@@ -115,11 +120,25 @@ function CardUser({ user }: CardUserProps) {
                 variant="body2"
                 color="grey"
                 fontFamily={'"Manjari", sans-serif'}
+                sx={{
+                  width: "calc(100% - 60px)",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
               >
                 @{user?.username}
               </Typography>
 
-              <Typography variant="body2">
+              <Typography
+                variant="body2"
+                sx={{
+                  wordBreak: "break-word",
+                  overflow: "hidden",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                }}
+              >
                 {user?.company?.name}, {user?.company?.catchPhrase}
               </Typography>
             </Stack>
