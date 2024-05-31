@@ -8,4 +8,5 @@ export interface User {
   name: string;
   username: string;
   company: UserCompany;
+  avatar: string;
 }
