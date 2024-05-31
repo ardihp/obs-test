@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "types/user";
 
-interface UserState {
+export interface UserState {
   list: User[];
   detail: User;
   totalData: number;
@@ -15,11 +15,11 @@ const initialState: UserState = {
     username: "",
     company: {
       name: "",
-      catchPhrase: "",
+      catchPhrase: ""
     },
-    avatar: "",
+    avatar: ""
   },
-  totalData: 0,
+  totalData: 0
 };
 
 export const userSlice = createSlice({
@@ -30,7 +30,7 @@ export const userSlice = createSlice({
       state.list = action.payload?.map((user) => {
         return {
           ...user,
-          avatar: `https://picsum.photos/id/${user?.id + 10}/200/200`,
+          avatar: `https://picsum.photos/id/${user?.id + 10}/200/200`
         };
       });
       state.totalData = action.payload.length;
@@ -53,8 +53,8 @@ export const userSlice = createSlice({
     createUser: (state, action: PayloadAction<User>) => {
       state.list = [action.payload, ...state.list];
       state.totalData += 1;
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -62,7 +62,7 @@ export const {
   setDetailUser,
   deleteUser,
   updateUser,
-  createUser,
+  createUser
 } = userSlice.actions;
 
 export default userSlice.reducer;
