@@ -39,6 +39,7 @@ function ModalEditUser({ open, handleClose, handleEdit }: ModalEditUserProps) {
       name: "",
       catchPhrase: "",
     },
+    avatar: "",
   });
   const userDetail = useAppSelector((state) => state.user.detail);
 

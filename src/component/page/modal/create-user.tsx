@@ -43,8 +43,9 @@ function ModalCreateUser({
       name: "",
       catchPhrase: "",
     },
+    avatar: "",
   });
-  const listUser = useAppSelector((state) => state.user.list);
+  const totalData = useAppSelector((state) => state.user.totalData);
 
   useEffect(() => {
     setInputValue({
@@ -55,6 +56,7 @@ function ModalCreateUser({
         name: "",
         catchPhrase: "",
       },
+      avatar: "",
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,7 +65,11 @@ function ModalCreateUser({
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    handleCreate({ ...inputValue, id: listUser?.length + 10 });
+    handleCreate({
+      ...inputValue,
+      id: totalData + 1,
+      avatar: `https://picsum.photos/id/${totalData + 1 + 10}/200/200`,
+    });
   }
 
   function checkDisable() {

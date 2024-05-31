@@ -4,6 +4,7 @@ import { User } from "types/user";
 interface UserState {
   list: User[];
   detail: User;
+  totalData: number;
 }
 
 const initialState: UserState = {
@@ -16,7 +17,9 @@ const initialState: UserState = {
       name: "",
       catchPhrase: "",
     },
+    avatar: "",
   },
+  totalData: 0,
 };
 
 export const userSlice = createSlice({
@@ -24,7 +27,13 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setListUser: (state, action: PayloadAction<User[]>) => {
-      state.list = action.payload;
+      state.list = action.payload?.map((user) => {
+        return {
+          ...user,
+          avatar: `https://picsum.photos/id/${user?.id + 10}/200/200`,
+        };
+      });
+      state.totalData = action.payload.length;
     },
     setDetailUser: (state, action: PayloadAction<User>) => {
       state.detail = action.payload;
@@ -43,6 +52,7 @@ export const userSlice = createSlice({
     },
     createUser: (state, action: PayloadAction<User>) => {
       state.list = [action.payload, ...state.list];
+      state.totalData += 1;
     },
   },
 });
