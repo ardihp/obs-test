@@ -29,7 +29,7 @@ function Header({ handleOpenModal }: HeaderProps) {
           startIcon={<Add />}
           onClick={handleOpenModal}
         >
-          Tambah User
+          New User
         </Button>
       </Stack>
     </header>
